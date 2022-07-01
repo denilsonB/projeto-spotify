@@ -7,7 +7,6 @@ class AuthenticationController < ApplicationController
         current_user.user_hash = @spotify_user.to_hash
         current_user.save
         
-        render json: current_user.user_hash
-        
+        render json: current_user
     end 
 end
