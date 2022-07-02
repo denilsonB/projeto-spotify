@@ -1,0 +1,7 @@
+<h1>Bem-vindo <%= @spotify_user.display_name %> </h1>
+
+<ul>
+    <li><%= link_to 'Playlists', playlists_path %></li>
+
+    <li><%= link_to 'Sair', destroy_user_session_path, :method => :delete %> </li>
+</ul>
