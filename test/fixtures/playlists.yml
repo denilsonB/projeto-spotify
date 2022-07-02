@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image_url: MyString
+  public: false
+  owner: MyString
+  href: MyString
+  uri: MyString
+  path: MyString
+  id_spotify: MyString
+  user: one
+
+two:
+  name: MyString
+  image_url: MyString
+  public: false
+  owner: MyString
+  href: MyString
+  uri: MyString
+  path: MyString
+  id_spotify: MyString
+  user: two
