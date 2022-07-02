@@ -11,6 +11,8 @@ module ProjetoSpotify
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     RSpotify::authenticate("41a63d58c2604a8585e49523121b02e3", "b1c5a86e92d74fd58a9c7b5ae9d8bef1")  
+
+    config.active_job.queue_adapter = :sidekiq
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
