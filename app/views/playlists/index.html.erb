@@ -1,3 +1,8 @@
+<%= form_tag("/tracks/show", method: "get") do %>
+  <%= label_tag(:q, "Search Tracks:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 <h1> Suas Playlists </h1>
 <ul>
   <% @playlists.each do |playlist| %>

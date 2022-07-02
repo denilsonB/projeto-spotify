@@ -4,7 +4,7 @@
         <%= form.collection_select :playlist_id, Playlist.all, :id, :name, include_blank: false %>
     </div>
 
-    <%= form.text_field :id_spotify, value: params[:id_track] , class: "d-none" %>
+    <%= form.text_field :track_id, value: params[:id_track] , class: "d-none" %>
 
     <div>
         <%= form.submit %>
