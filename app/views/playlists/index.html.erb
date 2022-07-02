@@ -1,0 +1,12 @@
+<h1> Suas Playlists </h1>
+<ul>
+  <% @playlists.each do |playlist| %>
+    <li>
+      <a href="<%= playlist_path(playlist) %>">
+        <%= playlist.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Playlist", new_playlist_path %>
