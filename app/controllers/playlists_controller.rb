@@ -3,7 +3,7 @@ class PlaylistsController < ApplicationController
     
     # GET /playlists
     def index
-        @playlists = current_user.playlists
+        @playlists = Playlist.all()
     end
 
     # GET /playlists/{id}
