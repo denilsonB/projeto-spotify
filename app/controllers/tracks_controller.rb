@@ -1,7 +1,9 @@
 class TracksController < ApplicationController
+    include Pagy::Backend
+
     #GET /tracks
     def index 
-        @tracks = Track.all()
+        @pagy, @tracks = pagy(Track.all())
     end
 
     #GET /tracks/show/{q}
@@ -45,6 +47,7 @@ class TracksController < ApplicationController
         redirect_to tracks_path
 
     end 
+
     private 
 
     def track_params
