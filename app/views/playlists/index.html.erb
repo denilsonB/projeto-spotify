@@ -3,13 +3,14 @@
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>
+<%= link_to "Tracks", tracks_path %>
 <h1> Suas Playlists </h1>
 <ul>
   <% @playlists.each do |playlist| %>
     <li>
-      <a href="<%= playlist_path(playlist) %>">
-        <%= playlist.name %>
-      </a>
+        <h4><%= playlist.name %></h4>
+        <%= link_to "Usar Playlist", playlist_path(playlist) %>
+        <td><%= button_to "Deletar", playlist, :method => :delete %></td>
     </li>
   <% end %>
 </ul>

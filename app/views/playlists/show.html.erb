@@ -1,5 +1,6 @@
-<h1> <%= @playlist.name %> </h1>
+<h1> Usando: <%= @playlist.name %> </h1>
 
 <ul>
     <li><%= link_to "Edit", edit_playlist_path(@playlist) %></li>
+    <li><%= link_to "Voltar", playlists_path %></li>
 </ul>
