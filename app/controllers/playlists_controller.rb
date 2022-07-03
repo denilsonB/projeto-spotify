@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
     before_action :authenticate_user!
+    before_action :authenticate_spotify
     
     # GET /playlists
     def index

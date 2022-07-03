@@ -1,5 +1,8 @@
 class TracksController < ApplicationController
     include Pagy::Backend
+    
+    before_action :authenticate_user!
+    before_action :authenticate_spotify
 
     #GET /tracks
     def index 
