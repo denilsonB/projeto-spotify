@@ -9,6 +9,9 @@ class PlaylistsController < ApplicationController
     # GET /playlists/{id}
     def show 
         @playlist = Playlist.find(params[:id])
+        RemoveTrackJob.set(wait: 210.seconds).perform_later(@playlist.user.id,@playlist.id)
+
+        @playlist
     end
 
     # GET /playlists/new
@@ -37,13 +40,21 @@ class PlaylistsController < ApplicationController
 
     #DELETE /playlists/{id}
     def destroy
-        #fazer depois de criar as tracks
+        @playlist = Playlist.find(params[:id])
+        spotify_playlist = RSpotify::Playlist.find_by_id(@playlist.id_spotify)
+
+        spotify_playlist.remove_tracks!(spotify_playlist.tracks)
+
+        if @playlist.destroy
+            redirect_to playlists_path
+        end
     end
 
     private
     
     def render_service
         if @service.success?
+            RemoveTrackJob.set(wait: 210.seconds).perform_later(@playlist.user.id,@playlist.id)
             redirect_to playlists_path
         else
             redirect_to '/auth/spotify'
